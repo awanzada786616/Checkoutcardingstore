@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wasi OTP System</title>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="firebase.js"></script>
+</head>
+<body>
+  <h2>Login / Signup</h2>
+  <input type="email" id="email" placeholder="Email"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <button onclick="login()">Login</button>
+  <button onclick="signup()">Signup</button>
+  <script>
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => window.location.href = "dashboard.html")
+        .catch(e => alert(e.message));
+    }
+    function signup() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() => window.location.href = "dashboard.html")
+        .catch(e => alert(e.message));
+    }
+  </script>
+  <script src="//code.tidio.co/v6flfnabuyblfkrginqkly19wazdskhc.js" async></script>
+</body>
+</html>
