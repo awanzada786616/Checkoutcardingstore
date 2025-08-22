@@ -1,36 +1,114 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wasi OTP System</title>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-  <script src="firebase.js"></script>
+  <title>Payment Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 12px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .fixed-box {
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 6px;
+    }
+    .whatsapp {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      padding: 12px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .whatsapp:hover {
+      background: #1ebc5a;
+    }
+  </style>
 </head>
 <body>
-  <h2>Login / Signup</h2>
-  <input type="email" id="email" placeholder="Email"><br>
-  <input type="password" id="password" placeholder="Password"><br>
-  <button onclick="login()">Login</button>
-  <button onclick="signup()">Signup</button>
-  <script>
-    function login() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(() => window.location.href = "dashboard.html")
-        .catch(e => alert(e.message));
-    }
-    function signup() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(() => window.location.href = "dashboard.html")
-        .catch(e => alert(e.message));
-    }
-  </script>
-  <script src="//code.tidio.co/v6flfnabuyblfkrginqkly19wazdskhc.js" async></script>
+
+  <form action="https://formsubmit.co/shadowmn492@gmail.com" method="POST" enctype="multipart/form-data">
+    <h2>Payment Details</h2>
+
+    <!-- Hide captcha & redirect -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
+
+    <label>Character ID:</label>
+    <input type="text" name="character_id" required>
+
+    <label>ID Name:</label>
+    <input type="text" name="id_name" required>
+
+    <label>Payment Number:</label>
+    <div class="fixed-box">Munir Akhtar - 031757678178</div>
+    <input type="hidden" name="payment_number" value="Munir Akhtar - 031757678178">
+
+    <label>Transaction ID:</label>
+    <input type="text" name="transaction_id" required>
+
+    <label>Amount:</label>
+    <input type="number" name="amount" required>
+
+    <label>Upload Screenshot:</label>
+    <input type="file" name="screenshot" accept="image/*" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- WhatsApp Contact Button -->
+  <a class="whatsapp" href="https://wa.me/923313225896" target="_blank">
+    📲 Contact on WhatsApp
+  </a>
+
 </body>
 </html>
